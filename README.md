@@ -56,3 +56,12 @@ screen and the wallpaper after login.
 
 For information on how to modify Lemonbar and all of the things on it, check out
 LemonbarREADME.md
+
+### Current TO-DO List
+
+- Convert clock to 12-hour time
+- Add guide on setting up mutt to worth with lemonbar
+- Add guide on setting up music programs to work with lemonbar
+- Fix alsa keyconfig so volume keys work on thinkpad t60
+- Translate all spanish comments into english
+- Comment any confusing config files to explain
