@@ -36,6 +36,22 @@ $ checkinstall -D make install
 
 - Restart computer
 
+## Changing Wallpaper
+
+Changing your wallpaper can be done within lightdm's configuration files.
+
+Run this command:
+```
+$ sudo vim /etc/lightdm/lightdm-gtk-greeter.conf
+```
+and look for the line that contains
+```
+#background=
+```
+Remove the hash mark to un-comment it and place the path to your image file
+after the equals sign. This background will apply to both the lightdm login
+screen and the wallpaper after login.
+
 ## Lemonbar
 
 For information on how to modify Lemonbar and all of the things on it, check out
