@@ -1,6 +1,6 @@
-#	i3config
+#	LinuxConfig
 
-This is my custom i3 configuration, based off of electro7's i3 config.
+This is my custom Linux configuration/"dotfiles", based off of electro7's dotfiles.
 
 I've made a few changes like removing spanish comments and fixing a few things
 so that it defaults to a dark theme, among other things. Feel free to suggest
