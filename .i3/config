@@ -143,11 +143,11 @@ bindcode $mod+52 focus child
 # switch to workspace
 bindcode $mod+10 workspace 1:term
 bindcode $mod+11 workspace 2:www
-bindcode $mod+12 workspace 3:vbox
-bindcode $mod+13 workspace 4:vnc
-bindcode $mod+14 workspace 5:doc
-bindcode $mod+15 workspace 6:img
-bindcode $mod+16 workspace 7:misc
+bindcode $mod+12 workspace 3:sptfy
+bindcode $mod+13 workspace 4:dlphn
+bindcode $mod+14 workspace 5:misc
+bindcode $mod+15 workspace 6:
+bindcode $mod+16 workspace 7:
 bindcode $mod+17 workspace 8
 bindcode $mod+18 workspace 9
 bindcode $mod+19 workspace 10
