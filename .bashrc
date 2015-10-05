@@ -70,7 +70,7 @@ if [ -x /usr/bin/dircolors ]; then
 	export LS_OPTIONS='--color=auto'
 	alias l='ls $LS_OPTIONS'
 	alias ll='ls $LS_OPTIONS -l -N -F'
-	alias ls='ls $LS_OPTIONS -A -N -hF'
+	alias ls='ls $LS_OPTIONS -N -h'
 fi
 
 alias lsmp3='ls -1 --indicator-style=none *.mp3'
