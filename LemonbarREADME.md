@@ -4,6 +4,12 @@ Lemonbar is the name of the upper status bar used in this i3 config. This README
 file outlines how to modify and change all of the different values and things on
 it.
 
+### Path
+
+All of Lemonbar's config files are located within ~/.i3/lemonbar
+
+Check there if you can't find something or want to modify something :)
+
 ### Lemonbar Networking
 
 Getting the networking features of lemonbar working can be a pain due to new

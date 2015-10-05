@@ -1,9 +1,13 @@
 #======================================================================#
 # .bashrc
-# Fichero de opciones del shell bash
+# Bash shell file options
 #
+# Original by:
 # Vicente Gimeno Morales - Electro7
-# 04 ene 2015
+# 
+# Modified by:
+# Tim Tepatti - ttepatti
+# 10/5/2015
 #======================================================================#
 
 # If not running interactively, don't do anything
@@ -13,29 +17,29 @@
 # Prompt
 #----------------------------------------------------------------------#
 
-# Colores a utilizar
-COLV="\[\033[0;32m\]" # Verde
+# Colors to use
+COLV="\[\033[0;32m\]" # Green
 COLC="\[\033[0;36m\]" # Cyan
-COLA="\[\033[0;33m\]" # Amarillo
+COLA="\[\033[0;33m\]" # Yellow
 COLB="\[\033[0;34m\]" # Blue
 COLP="\[\033[0;35m\]" # Purple
-COLR="\[\033[0;31m\]" # Rojo
+COLR="\[\033[0;31m\]" # Red
 COLN="\[\033[0m\]"	  # Reset
-COL="$COLC"           # Usuario normal
+COL="$COLC"           # Normal user
 
-[[ "$UID" = "0" ]] && COL=$COLR	# Rojo para root
+[[ "$UID" = "0" ]] && COL=$COLR	# Red for root
 
 case "$TERM" in
   rxvt*)
-    # Prompt a traves de promptline.vim
-    # Es un plugin de VIM para crear un prompt con simbolos powerline.
-    # Entrar en vim y hacer un :PromptlineSnapShot ~/.shell_prompt.sh
+    # Prompt through promptline.vim
+    # It's a plugin to create a vim prompt with symbols powerline.
+    # Enter vim and run :PromptlineSnapShot ~/.shell_prompt.sh
     source ~/.shell_prompt.sh
-    # Añado retorno de carro y señal de usuario/root
+    # Add carriage return signal for user/root
     function __promptadd
     {
       XTITLE='\[\e]0;\s (\w)\a\]'
-      # Conexión remota
+      # Remote connection
       if [[ -n "$REMOTEHOST" || -n "$SSH_CLIENT" ]]; then
         PS1="$XTITLE$PS1\n$COLA \h$COL \\$ $COLN"
       else
@@ -45,20 +49,20 @@ case "$TERM" in
     PROMPT_COMMAND="$PROMPT_COMMAND __promptadd;"
     ;;
   *)
-    # Opciones para el git
+    # Options for git
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWUPSTREAM="auto"
 
-    # Prompt final
+    # Prompt end
     PS1="$COLV--[$COL\u$COLV]-[$COLC\h$COLV]-[$COLA\w$COLV]\$(__git_ps1)\n$COL \\$ $COLN"
     ;;
 esac
 
 
 #----------------------------------------------------------------------#
-# Colores
+# Colors
 #----------------------------------------------------------------------#
 
 if [ -x /usr/bin/dircolors ]; then
@@ -171,34 +175,35 @@ unset color_cursor
 export PATH="$PATH:$HOME/bin"
 
 #----------------------------------------------------------------------#
-# Variables variadas
+# Various variables
 #----------------------------------------------------------------------#
 
-# Por defecto.
+# default
 export EDITOR="vim"
 export BROWSER="firefox"
 
 #----------------------------------------------------------------------#
-# Alias
+# Aliases
 #----------------------------------------------------------------------#
 
-# Alias contra borrados accidentales.
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+# Aliases to protect against accidents
+# I don't use 'em because yolo
+#alias rm='rm -i'
+#alias cp='cp -i'
+#alias mv='mv -i'
 
-# Alias de limpieza
+# Cleaning aliases
 alias texclean='rm -f *.toc *.aux *.log *.cp *.fn *.tp *.vr *.pg *.ky'
-alias clean='echo -n "¿Desea borrar todos los ficheros temporales (s/N)? ";
+alias clean='echo -n "Would you like to delete all temporary files? (y/N ";
 	read si;
 	if test "$si" = "y" -o "$si" = "s" ; then
     rm -f \#* *~ .*~ *.bak .*.bak  *.tmp .*.tmp core a.out;
-    echo "Hecho.";
+    echo "Done.";
 	else
-    echo "Cancelado.";
+    echo "Canceled.";
 	fi'
 
-# Alias del shell
+# Shell aliases
 alias h='history'
 alias v='vi'
 alias gv='gvim'
@@ -207,13 +212,13 @@ alias psl='ps -aux | less'
 alias ..='cd ..'
 alias 'cd..'='cd ..'
 
-# Alias para el su (root)
+# Root shell aliases
 alias reboot="sudo /sbin/reboot"
 alias halt="sudo /sbin/halt"
 alias xcdroast="sudo /usr/bin/xcdroast"
 alias gtkam="sudo /usr/bin/gtkam"
 
-# Alias para las X
+# Aliases for X
 alias xvi="terminal vim"
 alias xslrn="terminal slrn"
 alias xmutt="terminal mutt"
@@ -223,25 +228,8 @@ alias xiptraf="terminal iptraf"
 alias xbithcx="terminal bithcx"
 alias xt="terminal"
 
-# Alias del git
-alias gia="git add"
-alias gcm="git commit -a -m"
-alias gp="git push"
-
-# Mis chuletas
-alias chuleta="vim ~/.vim/doc/chuletario.txt"
-
-# Cambio colores de terminal
-alias col_dark="sh ~/.config/termcolours/dark.sh"
-alias col_light="sh ~/.config/termcolours/light.sh"
-alias col_default="sh ~/.config/termcolours/default.sh"
-
-# Wifi on/off
-alias wifi_on="nmcli nm wifi on"
-alias wifi_off="nmcli nm wifi off"
-
 #----------------------------------------------------------------------#
-# OTROS
+# Others
 #----------------------------------------------------------------------#
 
 # Auto-completion
@@ -253,20 +241,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Man coloreador - hay que instalar less
-man() {
-	env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-		man "$@"
-}
-
-# Extraer comprimidos
+# Extract Compressed
 extract () {
     if [ -f $1 ] ; then
       case $1 in
@@ -288,13 +263,8 @@ extract () {
      fi
 }
 
-# Para que a los VT100 no se les fastidie el terminal con los colores
-if [ $TERM = vt100 ]; then
-        alias ls='ls -F --color=never';
-fi
-
 #----------------------------------------------------------------------#
-# MI LOGO
+# Display logo using archey
 #----------------------------------------------------------------------#
 
 case "$TERM" in
@@ -304,18 +274,3 @@ xterm*|rxvt*)
 *)
 	;;
 esac
-
-#----------------------------------------------------------------------#
-# SSH KEY
-#----------------------------------------------------------------------#
-
-# Init ssg-agent if not exist
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent -s`
-fi
-
-# Add identities if not exist
-if [[ -n $(ssh-add -l | grep 'The agent has no identities') ]] ; then
-  ssh-add 2> /dev/null
-fi
-
