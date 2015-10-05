@@ -17,7 +17,6 @@ Enjoy!
 $ apt-get install i3 rxvt-unicode-256color lightdm x11-server-utils
 $ apt-get install git vim
 $ apt-get install conky curl alsautils
-$ apt-get install mdp mpc ncmpcpp
 ```
 - Delete all files in ~/ and clone the repo:
 ```
