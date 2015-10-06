@@ -1,7 +1,6 @@
-! Configuración de recursos X
-! 02 ene 2015 - E7
+! Xresources Config
+! 10/5/2015 - ttepatti
 ! vim: set ft=xdefaults:
-
 ! XFT - Fuentes
 !----------------------------------------------------------------------
 
@@ -15,15 +14,6 @@ Xft.hintstyle: hintfull
 
 Xcursor.theme:	 Neutral
 *font: -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-
-! Colores
-!----------------------------------------------------------------------
-!#include "/home/electro7/.config/termcolours/jellybeans"
-!#include "/home/electro7/.config/termcolours/hybrid"
-!#include "/home/electro7/.config/termcolours/base16-solarized.light"
-#include "/home/electro7/.config/termcolours/hybrid_e7"
-!#include "/home/electro7/.config/termcolours/s3r0"
-##include "/home/electro7/.config/termcolours/nix_e7"
 
 ! URXVT
 !----------------------------------------------------------------------
@@ -173,7 +163,7 @@ xterm*colorBD: plum2
 xterm*colorUL: wheat
 xterm*saveLines: 256
 xterm*title:  Terminal
-! Xterm con soporte de la rueda del raton
+! Xterm config to support mouse wheel
 xterm.vt100.translations: #override\n\
  Shift<Btn4Down>,<Btn4Up>:scroll-back(1,line)\n\
  Shift<Btn5Down>,<Btn5Up>:scroll-forw(1,line)\n\
