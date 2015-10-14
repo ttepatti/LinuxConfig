@@ -89,7 +89,6 @@ for_window [class="(?i)lxappearance"] floating enable
 for_window [class="(?i)wicd-client"] floating enable
 for_window [instance="(?i)dolphin"] floating enable
 for_window [instance="(?i)conky"] floating enable
-for_window [instance="(?i)iceweasel"] floating enable
 
 #...........
 # Keybinds i3
