@@ -1,64 +1,36 @@
 #	LinuxConfig
 
-This is my custom Linux configuration/"dotfiles", based off of electro7's dotfiles.
+This is my new and fancy Linux Config. I did away with my old config and decided to start fresh.
 
-I've made a few changes like removing spanish comments and fixing a few things
-so that it defaults to a dark theme, among other things. Feel free to suggest
-changes or comment things or steal all of the code or do whatever you want.
+I'm currently running this on Debian Stretch 9.7.0.
 
-Enjoy!
+Rather than being a complete clone of my dotfiles like the last repo was, this repo is more focused on how to set up a fresh system in a way that's useful to me and contains lots of tweaks and hacks to make my life easier.
 
 ## Prerequisites
 
-- Debian Minimal Install
+All of this was tested on Debian Stretch 9.7.0
 
-- Install Required Packages
-```
-$ apt-get install i3 rxvt-unicode-256color lightdm x11-server-utils
-$ apt-get install git vim
-$ apt-get install conky curl alsautils
-```
-- Delete all files in ~/ and clone the repo:
-```
-$ git clone https://github.com/ttepatti/LinuxConfig.git
-```
+Version 2 is aiming to be more modular than Version 1 - This repo will be similar to a collection of tutorials, each one dependent from the rest. Each tutorial will provide its own README along with a list of prerequisites.
 
-- Install lemonbar:
-```
-$ mkdir tmp; cd tmp
-$ git clone https://github.com/LemonBoy/bar.git
-$ apt-get install build-essential checkinstall
-$ apt-get install libxcb1-dev libxcb-xinerama0-dev libxcb-randr0-dev
-$ make
-$ checkinstall -D make install
-```
+## Categories
 
-- Restart computer
+Window Manager - i3
+System Monitor - Conky & i3bar
+Lock Screen - i3lock
+Update System - apt
+Antivirus - clamav & clamtk
 
-## Changing Wallpaper
+## Todo
 
-Changing your wallpaper can be done within lightdm's configuration files.
-
-Run this command:
-```
-$ sudo vim /etc/lightdm/lightdm-gtk-greeter.conf
-```
-and look for the line that contains
-```
-#background=
-```
-Remove the hash mark to un-comment it and place the path to your image file
-after the equals sign. This background will apply to both the lightdm login
-screen and the wallpaper after login.
-
-## Lemonbar
-
-For information on how to modify Lemonbar and all of the things on it, check out
-LemonbarREADME.md
-
-### Current TO-DO List
-
-- Fix alsa keyconfig so volume keys work on thinkpad t60
-- Translate all spanish comments into english
-- Comment any confusing config files to explain
-- Remove any unused files from electro7's install
+- Link categories to specific folders
+- Upload i3 config tweaks
+- Upload i3 multi-monitor config
+  - Upload Pluggable Dock config
+- Upload apt tweaks, unattended-upgrades tweaks
+- Upload clamav tweaks
+- Fix media keys on ThinkPad P52s
+- Fix sound
+- Fix print screen functionality/button
+  - Get drag-to-clip-part-of-screen enabled?
+- Get finger print reader working
+- Ensure SD card slot is working
